@@ -1,0 +1,5 @@
+string robot_name
+string[] joint_names
+---
+bool success
+string status_message                                     # comments if available
