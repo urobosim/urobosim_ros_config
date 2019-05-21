@@ -1,0 +1,9 @@
+<launch>
+  <include file="$(find iai_pr2_description)/launch/upload_pr2.launch" />
+
+  <rosparam command="load" file="$(find unreal_simulator_demo)/config/ros_control_sim.yaml" />
+
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" />
+
+  <node pkg="tf2_ros" type="buffer_server" name="tf2_buffer_server" />
+</launch>
