@@ -1,0 +1,13 @@
+float64 sim_time
+string[] joint_names
+float64[] joint_positions
+float64[] joint_velocities
+geometry_msgs/Pose robot_pose
+---
+string[] joint_names
+float64[] joint_positions
+float64[] joint_velocities
+float64[] joint_efforts
+geometry_msgs/Twist base_control_command
+string[] commands
+
