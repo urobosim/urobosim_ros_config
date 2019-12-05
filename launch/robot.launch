@@ -1,0 +1,16 @@
+<launch>
+  <include file="$(find iai_pr2_description)/launch/upload_pr2.launch" />
+
+  <rosparam command="load" file="$(find urobosim_ros_config)/config/ros_control_sim.yaml" />
+
+  <node pkg="robot_state_publisher" type="robot_state_publisher"
+    name="pr2_state_publisher" output="screen">
+    <param name="publish_frequency" value="25"/>
+    <param name="ignore_timestamp" value="true"/>
+    /* <param name="use_tf_static" value="False"/> */
+  </node>
+
+  <include file="$(find pr2_arm_kinematics)/launch/pr2_ik_larm_node.launch" />
+  <include file="$(find pr2_arm_kinematics)/launch/pr2_ik_rarm_node.launch" />
+
+</launch>
