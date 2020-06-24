@@ -14,6 +14,9 @@
         name="kitchen_joint_state_publisher" output="screen">
     <remap from="robot_description" to="kitchen_description"/>
     <remap from="joint_states" to="kitchen/joint_states"/>
+     <rosparam param="source_list">
+      - /kitchen/cram_joint_states
+    </rosparam>
     <param name="rate" value="25"/>
     <param name="use_gui" value="False"/>
   </node>
