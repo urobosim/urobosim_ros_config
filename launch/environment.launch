@@ -5,32 +5,34 @@
 
   <!-- occupancy map -->
   <include file="$(find iai_maps)/launch/map.launch" />
+  <include file="$(find iai_maps)/launch/room.launch" />
+  <include file="$(find iai_kitchen)/launch/upload_kitchen_obj.launch" />
 
-  <!-- kitchen URDF -->
-  <param name="kitchen_description"
-         command="$(find xacro)/xacro.py '$(find iai_kitchen)/urdf_obj/iai_kitchen_python.urdf.xacro'"/>
+  <!-- <!-\- kitchen URDF -\-> -->
+  <!-- <param name="kitchen_description" -->
+  <!--        command="$(find xacro)/xacro.py '$(find iai_kitchen)/urdf_obj/iai_kitchen_python.urdf.xacro'"/> -->
 
-  <node pkg="joint_state_publisher" type="joint_state_publisher"
-        name="kitchen_joint_state_publisher" output="screen">
-    <remap from="robot_description" to="kitchen_description"/>
-    <remap from="joint_states" to="kitchen/joint_states"/>
-     <rosparam param="source_list">
-      - /kitchen/cram_joint_states
-    </rosparam>
-    <param name="rate" value="25"/>
-    <param name="use_gui" value="False"/>
-  </node>
+  <!-- <node pkg="joint_state_publisher" type="joint_state_publisher" -->
+  <!--       name="kitchen_joint_state_publisher" output="screen"> -->
+  <!--   <remap from="robot_description" to="kitchen_description"/> -->
+  <!--   <remap from="joint_states" to="kitchen/joint_states"/> -->
+  <!--    <rosparam param="source_list"> -->
+  <!--     - /kitchen/cram_joint_states -->
+  <!--   </rosparam> -->
+  <!--   <param name="rate" value="25"/> -->
+  <!--   <param name="use_gui" value="False"/> -->
+  <!-- </node> -->
 
-  <node pkg="tf" type="static_transform_publisher" name="kitchen_link_broadcaster"
-        args="0 0 0 0 0 0 /map /iai_kitchen/world 25">
-  </node>
+  <!-- <node pkg="tf" type="static_transform_publisher" name="kitchen_link_broadcaster" -->
+  <!--       args="0 0 0 0 0 0 /map /iai_kitchen/world 25"> -->
+  <!-- </node> -->
 
-  <node pkg="robot_state_publisher" type="robot_state_publisher"
-    name="kitchen_state_publisher" output="screen">
-    <param name="tf_prefix" value="iai_kitchen"/>
-    /* <param name="use_tf_static" value="False"/> */
-    <param name="publish_frequency" value="25"/>
-    <remap from="robot_description" to="kitchen_description" />
-    <remap from="joint_states" to="kitchen/joint_states"/>
-  </node>
+  <!-- <node pkg="robot_state_publisher" type="robot_state_publisher" -->
+  <!--   name="kitchen_state_publisher" output="screen"> -->
+  <!--   <param name="tf_prefix" value="iai_kitchen"/> -->
+  <!--   /* <param name="use_tf_static" value="False"/> */ -->
+  <!--   <param name="publish_frequency" value="25"/> -->
+  <!--   <remap from="robot_description" to="kitchen_description" /> -->
+  <!--   <remap from="joint_states" to="kitchen/joint_states"/> -->
+  <!-- </node> -->
 </launch>
