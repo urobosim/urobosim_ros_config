@@ -1,0 +1,18 @@
+<launch>
+  <!-- upload or not upload the pr2 description, in case one is already uploaded -->
+  <arg name="upload" default="true" />
+
+  <node pkg="tf2_ros" type="buffer_server"
+    name="buffer_server" output="screen">
+  </node>
+
+  <!-- map of the iai kitchen  -->
+  <!-- <include file="$(find urobosim_ros_config)/launch/environment.launch" /> -->
+
+  <!-- robot -->
+  <include file="$(find urobosim_ros_config)/launch/tracebot_environment.launch" />
+  <include file="$(find urobosim_ros_config)/launch/tracebot_robot.launch" />
+
+  <node pkg="tf" type="static_transform_publisher" name="link1_broadcaster" args="0 0 0 0 0 0 tracebot_base_link map 100" />
+
+</launch>

@@ -1,0 +1,13 @@
+
+<launch>
+  <!-- upload or not upload the pr2 description, in case one is already uploaded -->
+  <arg name="model" default="$(find urobosim_ros_config)/config/tracebot.xacro"/>
+  <param name="kitchen_description" command="$(find xacro)/xacro.py '$(arg model)'" />
+
+  <node pkg="tf"
+        type="static_transform_publisher"
+        name="iai_kitchen_room_link_broadcaster"
+        args="0.0 0.0 0. 0.0 0. 0. map iai_kitchen/world 25">
+  </node>
+
+</launch>

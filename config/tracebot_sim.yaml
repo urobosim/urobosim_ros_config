@@ -1,0 +1,40 @@
+hardware_interface:
+  sim_control_mode: 0
+  joints:
+    - tracebot_left_arm_shoulder_pan_joint
+    - tracebot_left_arm_shoulder_lift_joint
+    - tracebot_left_arm_elbow_joint
+    - tracebot_left_arm_wrist_1_joint
+    - tracebot_left_arm_wrist_2_joint
+    - tracebot_left_arm_wrist_3_joint
+    - tracebot_left_gripper_joint
+    - tracebot_left_gripper_base_gripper_left_joint
+    - tracebot_right_arm_shoulder_pan_joint
+    - tracebot_right_arm_shoulder_lift_joint
+    - tracebot_right_arm_elbow_joint
+    - tracebot_right_arm_wrist_1_joint
+    - tracebot_right_arm_wrist_2_joint
+    - tracebot_right_arm_wrist_3_joint
+    - tracebot_right_gripper_joint
+    - tracebot_right_gripper_base_gripper_left_joint
+generic_hw_control_loop:
+  loop_hz: &loop_rate 100
+  cycle_time_error_threshold: 0.015
+joint_state_controller:
+  type: joint_state_controller/JointStateController
+  publish_rate: *loop_rate
+whole_body_controller:
+  type: position_controllers/JointTrajectoryController
+  joints:
+    - tracebot_left_arm_shoulder_pan_joint
+    - tracebot_left_arm_shoulder_lift_joint
+    - tracebot_left_arm_elbow_joint
+    - tracebot_left_arm_wrist_1_joint
+    - tracebot_left_arm_wrist_2_joint
+    - tracebot_left_arm_wrist_3_joint
+    - tracebot_right_arm_shoulder_pan_joint
+    - tracebot_right_arm_shoulder_lift_joint
+    - tracebot_right_arm_elbow_joint
+    - tracebot_right_arm_wrist_1_joint
+    - tracebot_right_arm_wrist_2_joint
+    - tracebot_right_arm_wrist_3_joint

@@ -1,0 +1,13 @@
+<launch>
+  <include file="$(find tracebot_description)/launch/launch_tracebot_rviz.launch" />
+
+  <rosparam command="load" file="$(find urobosim_ros_config)/config/tracebot_sim.yaml" />
+
+  <!-- <node pkg="robot_state_publisher" type="robot_state_publisher" -->
+  <!--   name="pr2_state_publisher" output="screen"> -->
+  <!--   <param name="publish_frequency" value="25"/> -->
+  <!--   <param name="ignore_timestamp" value="true"/> -->
+  <!--   /* <param name="use_tf_static" value="False"/> */ -->
+  <!-- </node> -->
+
+</launch>
