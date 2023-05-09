@@ -1,11 +1,13 @@
 <launch>
-  <include file="$(find tracebot_description)/launch/tracebot_iai_rviz.launch" />
+  <include file="$(find iai_tracy_description)/launch/upload.launch" />
 
   <rosparam command="load" file="$(find urobosim_ros_config)/config/tracebot_sim.yaml" />
+  <param name="robot_description_sdf" textfile="$(find iai_tracy_description)/urdf/tracy.sdf" />
 
   <node pkg="robot_state_publisher" type="robot_state_publisher"
-    name="pr2_state_publisher" output="screen">
+    name="tracy_state_publisher" output="screen">
     <param name="publish_frequency" value="25"/>
+    <param name="tf_prefix" value="tracy"/>
     <param name="ignore_timestamp" value="true"/>
     /* <param name="use_tf_static" value="False"/> */
   </node>
